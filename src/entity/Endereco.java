@@ -1,5 +1,7 @@
 package entity;
 
+import entity.enums.TipoLogradouro;
+
 public class Endereco {
     private Long id;
     private TipoLogradouro tipoLogradouro;

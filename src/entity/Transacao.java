@@ -1,5 +1,7 @@
 package entity;
 
+import entity.enums.TipoTransacao;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

@@ -1,5 +1,7 @@
 package entity;
 
+import entity.enums.SituacaoConta;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,5 +33,13 @@ public abstract class Conta {
 
     public String getNumeroConta() {
         return numeroConta;
+    }
+
+    public void adicionarTransacao(Transacao transacao) {
+        transacoes.add(transacao);
+    }
+
+    public List<Transacao> getTransacoes() {
+        return new ArrayList<>(transacoes);
     }
 }
