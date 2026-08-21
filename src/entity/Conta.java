@@ -42,4 +42,16 @@ public abstract class Conta {
     public List<Transacao> getTransacoes() {
         return new ArrayList<>(transacoes);
     }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "{" +
+                "id=" + id +
+                ", titular=" + titular +
+                ", numeroConta='" + numeroConta + '\'' +
+                ", saldo=" + saldo +
+                ", situacaoConta=" + situacaoConta +
+                ", transacoes=" + transacoes +
+                '}';
+    }
 }
