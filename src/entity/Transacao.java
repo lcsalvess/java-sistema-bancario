@@ -28,4 +28,13 @@ public class Transacao {
     public LocalDateTime getDataHora() {
         return dataHora;
     }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "{" +
+                "tipo=" + tipo +
+                ", valor=" + valor +
+                ", dataHora=" + dataHora +
+                '}';
+    }
 }
