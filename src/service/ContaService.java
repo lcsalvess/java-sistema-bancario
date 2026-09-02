@@ -8,7 +8,7 @@ import entity.enums.TipoConta;
 import repository.ContaRepository;
 
 public class ContaService {
-    private ContaRepository contaRepository;
+    private final ContaRepository contaRepository;
 
     private int contadorNumeroConta = 1000;
 

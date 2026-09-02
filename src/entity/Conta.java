@@ -69,6 +69,12 @@ public abstract class Conta {
         this.adicionarTransacao(transacao);
     }
 
+    public void creditarRendimento(BigDecimal valor) {
+        this.saldo = this.saldo.add(valor);
+        Transacao transacao = new Transacao(TipoTransacao.RENDIMENTO, valor, LocalDateTime.now());
+        this.adicionarTransacao(transacao);
+    }
+
     @Override
     public String toString() {
         return getClass().getSimpleName() + "{" +
