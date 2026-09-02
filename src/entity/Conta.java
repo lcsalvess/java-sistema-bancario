@@ -75,6 +75,10 @@ public abstract class Conta {
         this.adicionarTransacao(transacao);
     }
 
+    public void cancelarConta() {
+        this.situacaoConta = SituacaoConta.CANCELADA;
+    }
+
     @Override
     public String toString() {
         return getClass().getSimpleName() + "{" +

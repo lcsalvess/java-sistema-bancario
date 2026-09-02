@@ -4,8 +4,11 @@ import entity.Cliente;
 import entity.Conta;
 import entity.ContaCorrente;
 import entity.ContaPoupanca;
+import entity.enums.SituacaoConta;
 import entity.enums.TipoConta;
 import repository.ContaRepository;
+
+import java.math.BigDecimal;
 
 public class ContaService {
     private final ContaRepository contaRepository;
@@ -32,6 +35,20 @@ public class ContaService {
         }
         contaRepository.salvar(novaConta);
         return novaConta;
+    }
+
+    public void cancelarConta (String numeroConta) {
+        Conta conta = contaRepository.buscarPorNumero(numeroConta);
+        if (conta == null) {
+            throw new IllegalArgumentException("Número de conta inválido.");
+        }
+        if(conta.getSituacaoConta() == SituacaoConta.CANCELADA) {
+            throw new IllegalArgumentException("A conta informada já está cancelada.");
+        }
+        if (conta.getSaldo().compareTo(BigDecimal.ZERO) > 0) {
+            throw new IllegalArgumentException("A conta não pode ser cancelada com saldo.");
+        }
+        conta.cancelarConta();
     }
 
 }
