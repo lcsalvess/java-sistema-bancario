@@ -26,16 +26,8 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" +
-                "id=" + id +
-                ", tipoLogradouro=" + tipoLogradouro +
-                ", logradouro='" + logradouro + '\'' +
-                ", numero='" + numero + '\'' +
-                ", complemento='" + complemento + '\'' +
-                ", bairro='" + bairro + '\'' +
-                ", cidade='" + cidade + '\'' +
-                ", estado='" + estado + '\'' +
-                ", cep='" + cep + '\'' +
-                '}';
+        String comp = (complemento != null && !complemento.isEmpty()) ? " - " + complemento : "";
+        return String.format("%s %s, %s%s - %s, %s/%s, CEP: %s",
+                tipoLogradouro, logradouro, numero, comp, bairro, cidade, estado, cep);
     }
 }

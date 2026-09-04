@@ -18,13 +18,12 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
-                ", endereco=" + endereco +
-                '}';
+        return String.format("""
+                Nome     : %s
+                CPF      : %s
+                Email    : %s
+                Telefone : %s
+                Endereço : %s""",
+                nome, cpf, email, telefone, endereco.toString());
     }
 }

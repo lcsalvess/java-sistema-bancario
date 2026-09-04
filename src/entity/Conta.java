@@ -81,13 +81,25 @@ public abstract class Conta {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{" +
-                "id=" + id +
-                ", titular=" + titular +
-                ", numeroConta='" + numeroConta + '\'' +
-                ", saldo=" + saldo +
-                ", situacaoConta=" + situacaoConta +
-                '}';
+        return String.format("""
+                =====================================
+                           DADOS DA CONTA
+                =====================================
+                Número da Conta: %s
+                Tipo: %s
+                Status: %s
+                -------------------------------------
+                DADOS DO TITULAR
+                %s
+                -------------------------------------
+                SALDO: R$ %.2f
+                =====================================
+                """,
+                this.numeroConta,
+                this.getClass().getSimpleName(),
+                this.situacaoConta,
+                this.titular.toString(),
+                this.saldo);
     }
 
 }
