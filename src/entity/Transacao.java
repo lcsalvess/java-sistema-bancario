@@ -4,6 +4,7 @@ import entity.enums.TipoTransacao;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transacao {
     private Long id;
@@ -31,10 +32,18 @@ public class Transacao {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{" +
-                "tipo=" + tipo +
-                ", valor=" + valor +
-                ", dataHora=" + dataHora +
-                '}';
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String dataFormatada = this.dataHora != null ? this.dataHora.format(formatter) : "Data Indisponível";
+        String tipoTransacao = this.tipo.toString().replace("_"," ");
+        String sinal = switch(this.tipo.toString()) {
+          case "SAQUE", "TRANSFERENCIA_ENVIADA" -> "-";
+          case "DEPOSITO", "TRANSFERENCIA_RECEBIDA", "RENDIMENTO" -> "+";
+            default -> " ";
+        };
+        return String.format("[%s] %-25s -> %s R$ %.2f",
+                dataFormatada,
+                tipoTransacao,
+                sinal,
+                this.valor);
     }
 }
