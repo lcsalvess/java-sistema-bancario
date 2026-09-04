@@ -81,6 +81,11 @@ public abstract class Conta {
 
     @Override
     public String toString() {
+        String tipoFormatado = switch(this.getClass().getSimpleName()) {
+            case "ContaCorrente" -> "Conta Corrente";
+            case "ContaPoupanca" -> "Conta Poupança";
+            default -> "Conta";
+        };
         return String.format("""
                 =====================================
                            DADOS DA CONTA
@@ -96,7 +101,7 @@ public abstract class Conta {
                 =====================================
                 """,
                 this.numeroConta,
-                this.getClass().getSimpleName(),
+                tipoFormatado,
                 this.situacaoConta,
                 this.titular.toString(),
                 this.saldo);

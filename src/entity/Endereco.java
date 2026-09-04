@@ -14,6 +14,12 @@ public class Endereco {
     private String cep;
 
     public Endereco(TipoLogradouro tipoLogradouro, String logradouro, String numero, String complemento, String bairro, String cidade, String estado, String cep) {
+        if (!estado.trim().matches("^[A-Za-z]{2}$")){
+            throw new IllegalArgumentException("Erro: Digite a sigla do estado");
+        }
+        if (!cep.matches("^\\d{8}$")){
+            throw new IllegalArgumentException("Erro: O CEP deve conter oito digítos");
+        }
         this.tipoLogradouro = tipoLogradouro;
         this.logradouro = logradouro;
         this.numero = numero;

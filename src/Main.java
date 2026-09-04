@@ -120,7 +120,6 @@ public class Main {
             };
         }
 
-
         String logradouro = ConsoleUtils.lerStringObrigatoria(sc, "Logradouro: ");
         String numero = ConsoleUtils.lerStringObrigatoria(sc, "Número: ");
         String complemento = ConsoleUtils.lerStringOpcional(sc, "Complemento: ");
@@ -145,7 +144,6 @@ public class Main {
                 default:
                     System.out.println("Erro: Opção inválida. Escolha entre 1 e 2.");
             }
-            ;
         }
     }
 
