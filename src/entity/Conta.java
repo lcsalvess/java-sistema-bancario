@@ -87,7 +87,6 @@ public abstract class Conta {
                 ", numeroConta='" + numeroConta + '\'' +
                 ", saldo=" + saldo +
                 ", situacaoConta=" + situacaoConta +
-                ", transacoes=" + transacoes +
                 '}';
     }
 

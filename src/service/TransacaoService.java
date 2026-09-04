@@ -48,7 +48,7 @@ public class TransacaoService {
         if (isContaInvalida(contaDestino)) {
             throw new IllegalArgumentException("Número da conta de destino inválido!");
         }
-        if(numeroContaOrigem != null && numeroContaOrigem.equals(numeroContaDestino)){
+        if(numeroContaOrigem.equals(numeroContaDestino)){
             throw new IllegalArgumentException("Não é possível fazer transferências entre a mesma conta");
         }
         if (isValorInvalido(valor)) {
